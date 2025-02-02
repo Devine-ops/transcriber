@@ -7,6 +7,7 @@ import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+
 // Criar o equivalente de __dirname para ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,7 +27,7 @@ const upload = multer({ storage: storage });
 
 const apiKey = process.env.OpenAI_API_KEY; // Agora está correto, buscando do .env
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(cors({
   origin: '*',  // Permitir apenas o frontend

@@ -1,9 +1,11 @@
 {
   "type": "module",
-  "name": "my-app",
+  "name": "transcriber-api",
   "version": "0.1.0",
+  "main": "api.js",
   "private": true,
   "dependencies": {
+    "@supabase/supabase-js": "^2.48.1",
     "cors": "^2.8.5",
     "cra-template": "1.2.0",
     "dotenv": "^16.4.7",
