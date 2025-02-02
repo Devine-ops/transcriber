@@ -1,13 +1,11 @@
-import {useState} from "react";
+import { useState } from "react";
 import "./App.css";
-import { MicVocal, Shield, Zap, Globe2 } from "lucide-react";
-
+import { MicVocal, Shield, Zap, Globe2, LetterText, Copy } from "lucide-react";
 
 function App() {
-
   const [audioFile, setAudioFile] = useState(null);
-  const [transcription, setTranscription] = useState(null);
-  const file = ('/audio.wav')
+  const [transcription, setTranscription] = useState('');
+  const file = "/audio.wav";
   const handleFileChange = (event) => {
     setAudioFile(event.target.files[0]);
   };
@@ -16,16 +14,16 @@ function App() {
     event.preventDefault();
 
     if (!audioFile) {
-      alert('Por favor, escolha um arquivo de áudio.');
+      alert("Por favor, escolha um arquivo de áudio.");
       return;
     }
 
     const formData = new FormData();
-    formData.append('audio', audioFile);
+    formData.append("audio", audioFile);
 
     try {
-      const response = await fetch('http://localhost:5000/transcribe', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/transcribe", {
+        method: "POST",
         body: formData,
       });
 
@@ -33,19 +31,26 @@ function App() {
         const data = await response.json();
         setTranscription(data.transcription);
       } else {
-        console.error('Erro na transcrição:', response.statusText);
-        alert('Erro ao transcrever o áudio.');
+        console.error("Erro na transcrição:", response.statusText);
+        alert("Erro ao transcrever o áudio.");
       }
     } catch (error) {
-      console.error('Erro na transcrição:', error);
-      alert('Erro ao transcrever o áudio.');
+      console.error("Erro na transcrição:", error);
+      alert("Erro ao transcrever o áudio.");
     }
   };
+
+    const [text, setText] = useState('')
+    const handleCopy = async () => {
+      await navigator.clipboard.writeText(transcription)
+      alert('Texto copiado para a área de transferência!');
+    }
+
   return (
     <div className="App">
       <header>
         <MicVocal className="mic" />
-        VoiceScriber
+        <h1>VoiceScriber</h1>
       </header>
 
       <div className="hero">
@@ -139,20 +144,41 @@ function App() {
             <div class="bottom"></div>
           </div>
           <label class="custom-file-upload">
-            <input class="title" type="file" accept="audio/*" onChange={handleFileChange}/>
+            <input
+              class="title"
+              type="file"
+              accept="audio/*"
+              onChange={handleFileChange}
+            />
             Choose a file
           </label>
-          <button type='submit'>Transcription</button>
+          <div className="btn">
+            <button type="submit" className="custom-file-upload2">
+              Transcription
+            </button>
+          </div>
         </form>
       </div>
-      
+      <div className="title_transcription">
+        <h3>
+          Transcription <LetterText className="text" />
+        </h3>
+      </div>
 
-      {transcription && (<div className='transcription'>
-        <h3>Transcription:</h3>
-        <p>{transcription}</p>
-        </div>
-      )}
-      
+      <div className="transcription">
+        <h4>Seu texto será gerado aqui!</h4>
+        {transcription && (
+          <div>
+            <p value={text} onChange={(e) => setText(e.target.value)}>{transcription}</p>
+            <button className="copy" onClick={handleCopy}>
+              <Copy />
+            </button>
+          </div>
+        )}
+      </div>
+      <div className="footer">
+        <p>©Todos os direitos reservados - AudioScribe</p>
+      </div>
     </div>
   );
 }

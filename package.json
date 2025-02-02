@@ -1,8 +1,10 @@
 {
+  "type": "module",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cors": "^2.8.5",
     "cra-template": "1.2.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",

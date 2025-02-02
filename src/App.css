@@ -26,6 +26,8 @@ header {
 
 header .mic {
   margin: 8px;
+  width: 45px;
+  height: 45px;
 }
 
 .hero {
@@ -110,6 +112,9 @@ header .mic {
 }
 
 .pass_to_pass{
+  flex-wrap: wrap;
+  margin-left:2% ;
+  margin-right: 2%;
   display: flex;
   justify-content: space-around;
   margin-top: 60px;
@@ -145,8 +150,11 @@ header .mic {
 
 /*input*/
 
-.submit{
+.file-upload{
+  margin-left:2% ;
+  margin-right: 2%;
   margin-top: 80px;
+  margin-bottom: 80px;
   display: flex;
   justify-content: center;
 }
@@ -208,8 +216,29 @@ header .mic {
   width: 220px;
 }
 
+.custom-file-upload2 {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #2193b0;
+  text-align: center;
+  margin-top: 20px;
+  padding: 15px 25px;
+  background: rgba(255, 255, 255, 0.719);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: inline-block;
+  width: 220px;
+}
+
 .custom-file-upload:hover {
   background: rgba(255, 255, 255, 0.4);
+}
+
+.custom-file-upload2:hover {
+  background: rgb(255, 255, 255);
 }
 
 .custom-file-upload input[type="file"] {
@@ -228,5 +257,57 @@ header .mic {
   100% {
     transform: translateY(0px);
   }
+}
+
+.title_transcription{
+  background: rgb(0, 138, 204);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 138, 204, 1) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.title_transcription h3{
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+  font-weight: 400;
+  padding: 10px;
+  text-align: center;
+}
+
+.title_transcription .text{
+  width: 35px;
+  height: 35px;
+  margin-left: 10px;
+}
+
+.transcription{
+  margin: 40px auto;
+  width: 60%;
+}
+.transcription h4{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.transcription p{
+  padding: 20px;
+  font-size: 18px;
+  border: 2px solid #00a9cc;
+  border-radius: 40px 0 40px 0;
+}
+
+.transcription .copy{
+  background-color: #ffffff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+.footer{
+  text-align: center;
+  padding: 20px;
+  background-color: #00a9cc;
 }
 

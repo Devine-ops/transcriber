@@ -29,7 +29,7 @@ const app = express();
 const port = 5000;
 
 app.use(cors({
-  origin: 'http://localhost:3000',  // Permitir apenas o frontend
+  origin: '*',  // Permitir apenas o frontend
   methods: ['GET', 'POST'],          // Métodos permitidos
   allowedHeaders: ['Content-Type']   // Cabeçalhos permitidos
 }));
