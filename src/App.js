@@ -1,7 +1,46 @@
+import {useState} from "react";
 import "./App.css";
 import { MicVocal, Shield, Zap, Globe2 } from "lucide-react";
 
+
 function App() {
+
+  const [audioFile, setAudioFile] = useState(null);
+  const [transcription, setTranscription] = useState(null);
+  const file = ('/audio.wav')
+  const handleFileChange = (event) => {
+    setAudioFile(event.target.files[0]);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!audioFile) {
+      alert('Por favor, escolha um arquivo de áudio.');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('audio', audioFile);
+
+    try {
+      const response = await fetch('http://localhost:5000/transcribe', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setTranscription(data.transcription);
+      } else {
+        console.error('Erro na transcrição:', response.statusText);
+        alert('Erro ao transcrever o áudio.');
+      }
+    } catch (error) {
+      console.error('Erro na transcrição:', error);
+      alert('Erro ao transcrever o áudio.');
+    }
+  };
   return (
     <div className="App">
       <header>
@@ -93,18 +132,27 @@ function App() {
 
       {/*script*/}
 
-      <div className="submit">
-        <div class="container">
+      <div className="file-upload">
+        <form class="container" onSubmit={handleSubmit}>
           <div class="folder">
             <div class="top"></div>
             <div class="bottom"></div>
           </div>
           <label class="custom-file-upload">
-            <input class="title" type="file" accept="audio/*" />
+            <input class="title" type="file" accept="audio/*" onChange={handleFileChange}/>
             Choose a file
           </label>
-        </div>
+          <button type='submit'>Transcription</button>
+        </form>
       </div>
+      
+
+      {transcription && (<div className='transcription'>
+        <h3>Transcription:</h3>
+        <p>{transcription}</p>
+        </div>
+      )}
+      
     </div>
   );
 }
