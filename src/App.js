@@ -22,7 +22,7 @@ function App() {
     formData.append("audio", audioFile);
 
     try {
-      const response = await fetch("https://api-server-transcriber-d1010e1e9f67.herokuapp.com", {
+      const response = await fetch("https://api-server-transcriber-d1010e1e9f67.herokuapp.com/transcribe", {
         method: "POST",
         body: formData,
       });
