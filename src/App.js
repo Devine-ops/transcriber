@@ -147,7 +147,7 @@ function App() {
             <input
               class="title"
               type="file"
-              accept="audio/*"
+              accept="audio/*, .m4a, .caf, .mp3, .wav"
               onChange={handleFileChange}
             />
             Choose a file
