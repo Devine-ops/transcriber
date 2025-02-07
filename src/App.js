@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { MicVocal, Shield, Zap, Globe2, LetterText, Copy } from "lucide-react";
 import logo from  "../src/logo.png"
-import hero from "../src/hero.png"
+import hero from "../public/hero.png"
 
 function App() {
   const [audioFile, setAudioFile] = useState(null);
@@ -51,7 +51,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img src={logo} width="50" height="60"></img>
+        <img src={logo} width="1200" height="600" alt="hero image" fetchPriority="high" loading="eager"></img>
         <h1>VoiceScriber</h1>
       </header>
 
