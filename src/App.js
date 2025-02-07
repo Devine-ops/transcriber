@@ -63,7 +63,7 @@ function App() {
             advanced AI. Perfect for podcasters, journalists, and businesses.
           </p>
         </div>
-        <img src={hero} className="hero_img"/>
+        <img src="/hero.png" className="hero_img"/>
       </div>
 
       <div className="cards_text">
