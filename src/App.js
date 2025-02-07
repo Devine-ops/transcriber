@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import { MicVocal, Shield, Zap, Globe2, LetterText, Copy } from "lucide-react";
+import logo from  "../src/logo.png"
+import hero from "../src/hero.png"
 
 function App() {
   const [audioFile, setAudioFile] = useState(null);
@@ -49,7 +51,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <MicVocal className="mic" />
+        <img src={logo} width="50" height="60"></img>
         <h1>VoiceScriber</h1>
       </header>
 
@@ -61,6 +63,7 @@ function App() {
             advanced AI. Perfect for podcasters, journalists, and businesses.
           </p>
         </div>
+        <img src={hero} className="hero_img"/>
       </div>
 
       <div className="cards_text">
@@ -104,9 +107,11 @@ function App() {
               <p>1</p>
             </div>
             <p>Upload Your Audio</p>
-            <span>
-              Upload any audio or video file. We support all major formats.
-            </span>
+            <div className="desc_pass">
+              <span>
+                Upload any audio or video file. We support all major formats.
+              </span>
+            </div>
           </div>
         </div>
 
@@ -116,9 +121,11 @@ function App() {
               <p>2</p>
             </div>
             <p>AI-Powered Transcription</p>
+            <div className="desc_pass">
             <span>
               Our AI quickly transcribes your audio with high accuracy.
             </span>
+            </div>
           </div>
         </div>
 
@@ -128,9 +135,11 @@ function App() {
               <p>3</p>
             </div>
             <p>Download Your Text</p>
-            <span>
-              Get your transcription in multiple formats, ready to use.
-            </span>
+            <div className="desc_pass">
+              <span>
+                Get your transcription in multiple formats, ready to use.
+              </span>
+            </div>
           </div>
         </div>
       </div>

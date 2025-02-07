@@ -7,46 +7,43 @@
 }
 
 header {
+  justify-content: center;
   font-weight: 400;
   color: aliceblue;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 20px;
+  padding: 80px;
   width: 100%;
   height: 60px;
-  background: rgb(0, 138, 204);
-  background: linear-gradient(
-    90deg,
-    rgba(0, 138, 204, 1) 0%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: #101728;
+  
 }
 
-header .mic {
+header h1{
+  font-size: 40px;
+}
+
+header img {
   margin: 8px;
-  width: 45px;
-  height: 45px;
+  width: 100px;
+  height: 100px;
 }
 
 .hero {
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 400px;
-  background: rgb(224, 224, 224);
-  background: linear-gradient(
-    0deg,
-    rgba(224, 224, 224, 1) 0%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(224, 224, 224, 1) 100%
-  );
+  background: #101728;
+  padding: 0 2%;
+  flex-wrap: wrap;
+  display: flex;
 }
 
 .hero_text {
-  padding: 0 2%;
+  width: 50%;
   text-align: center;
 }
 
@@ -59,8 +56,10 @@ header .mic {
   font-size: 20px;
 }
 
-.cards_text {
-  text-align: center;
+.hero img{
+  min-width: 400px;
+  width: 40%;
+  margin-bottom: 25px;
   font-size: 25px;
   margin-top: 30px;
 }
@@ -72,11 +71,19 @@ header .mic {
   justify-content: space-around;
 }
 
+.cards_text{
+  font-size: 30px;
+  margin-top: 20px;
+  text-align: center;
+}
+
 .card {
+  color: #fff;
+  background-color: #101728;
   margin: 20px;
   width: 400px;
   height: 250px;
-  box-shadow: 10px 10px 10px 10px #4d707a;
+  box-shadow: 10px 10px 10px 10px #8ba3aa2c;
   border-radius: 8px;
   z-index: 1;
   display: flex;
@@ -84,10 +91,11 @@ header .mic {
   justify-content: center;
   align-items: center;
   padding: 10px;
+  margin: 30px 5%;
 }
 
 .icon {
-  color: #00a9cc;
+  color: #ffffff;
   height: 60px;
   width: 60px;
   display: block;
@@ -100,6 +108,8 @@ header .mic {
 }
 
 .card span {
+  padding: 8px;
+  text-align: center;
   font-size: 20px;
   font-weight: 300;
   word-spacing: 4px;
@@ -121,9 +131,16 @@ header .mic {
   margin-bottom: 20px;
 }
 
+.container_pass{
+  border-radius: 20px;
+  margin: 20px 4%;
+  border: 2px solid #101728;
+}
+
 .circle{
+  color: #fff;
   margin: 40px auto;
-  background-color: rgba(0, 212, 255, 1);
+  background-color: #101728;
   border-radius: 50%; /* Torna o elemento circular */
   width: 60px;
   height: 60px;
@@ -144,7 +161,12 @@ header .mic {
   font-weight: 400;
 }
 
+.wrapper_pass .desc_pass{
+  text-align: center;
+  padding: 19px;
+}
 .wrapper_pass span{
+  text-align: center;
   font-size: 18px;
 }
 
@@ -165,7 +187,7 @@ header .mic {
   justify-content: center;
   padding: 20px;
   width: 600px;
-  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  background: linear-gradient(135deg, #101728, #101728);
   border-radius: 15px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
@@ -219,7 +241,7 @@ header .mic {
 .custom-file-upload2 {
   font-weight: bold;
   font-size: 1.1em;
-  color: #2193b0;
+  color: #000000;
   text-align: center;
   margin-top: 20px;
   padding: 15px 25px;
@@ -260,13 +282,7 @@ header .mic {
 }
 
 .title_transcription{
-  background: rgb(0, 138, 204);
-  background: linear-gradient(
-    90deg,
-    rgba(0, 138, 204, 1) 0%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: #101728;
 }
 
 .title_transcription h3{
@@ -306,8 +322,53 @@ header .mic {
   cursor: pointer;
 }
 .footer{
+  font-size: 18px;
+  color: #fff;
   text-align: center;
   padding: 20px;
-  background-color: #00a9cc;
+  background-color: #101728;
 }
 
+@media only screen and (max-width: 970px){
+  .hero{
+    flex-direction: column;
+  }
+
+  .hero_text{
+    min-width: 400px;
+  }
+
+  .hero_text h1{
+    font-size: 40px;
+  }
+
+  .hero_text p{
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 870px){
+  .hero_text{
+    min-width: 300px;
+  }
+}
+
+
+@media only screen and (max-width: 500px){
+  header h1{
+    font-size: 20px;
+  }
+
+  header img{
+    width: 80px;
+    height: 80px;
+  }
+
+  .hero_text{
+    min-width: 200px;
+  }
+
+  .hero img{
+    min-width: 200px;
+  }
+}
