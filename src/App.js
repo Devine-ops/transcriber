@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { MicVocal, Shield, Zap, Globe2, LetterText, Copy } from "lucide-react";
 import logo from  "../src/logo.png"
-import hero from "../public/hero.png"
+
 
 function App() {
   const [audioFile, setAudioFile] = useState(null);
