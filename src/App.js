@@ -163,7 +163,7 @@ function App() {
           </label>
           <div className="btn">
             <button type="submit" className="custom-file-upload2">
-              Transcription
+              Transcriber
             </button>
           </div>
         </form>
@@ -175,7 +175,7 @@ function App() {
       </div>
 
       <div className="transcription">
-        <h4>Seu texto será gerado aqui!</h4>
+        <h4>Your text will be generated here, click in TRANSCRIBER please wait !</h4>
         {transcription && (
           <div>
             <p value={text} onChange={(e) => setText(e.target.value)}>{transcription}</p>

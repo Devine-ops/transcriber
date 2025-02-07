@@ -334,8 +334,12 @@ header img {
     flex-direction: column;
   }
 
+  .hero img{
+    width: 100%;
+  }
+
   .hero_text{
-    min-width: 400px;
+    width: 100%;
   }
 
   .hero_text h1{
