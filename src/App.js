@@ -1,13 +1,14 @@
 import { useState } from "react";
 import "./App.css";
-import { MicVocal, Shield, Zap, Globe2, LetterText, Copy } from "lucide-react";
+import { Shield, Zap, Globe2, LetterText, Copy } from "lucide-react";
 import logo from  "../src/logo.png"
 
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [audioFile, setAudioFile] = useState(null);
   const [transcription, setTranscription] = useState('');
-  const file = "/audio.wav";
   const handleFileChange = (event) => {
     setAudioFile(event.target.files[0]);
   };
@@ -19,6 +20,8 @@ function App() {
       alert("Por favor, escolha um arquivo de áudio.");
       return;
     }
+
+    setIsLoading(true);
 
     const formData = new FormData();
     formData.append("audio", audioFile);
@@ -39,6 +42,8 @@ function App() {
     } catch (error) {
       console.error("Erro na transcrição:", error);
       alert("Erro ao transcrever o áudio.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -51,7 +56,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img src={logo} width="1200" height="600" alt="hero image" fetchPriority="high" loading="eager"></img>
+        <img src={logo} width="1200" height="600" alt="hero_image" fetchPriority="high" loading="eager"/>
         <h1>VoiceScriber</h1>
       </header>
 
@@ -63,7 +68,7 @@ function App() {
             advanced AI. Perfect for podcasters, journalists, and businesses.
           </p>
         </div>
-        <img src="/hero.png" className="hero_img"/>
+        <img src="/hero.webp" className="hero_img" alt="hero_image"/>
       </div>
 
       <div className="cards_text">
@@ -162,8 +167,8 @@ function App() {
             Choose a file
           </label>
           <div className="btn">
-            <button type="submit" className="custom-file-upload2">
-              Transcriber
+            <button type="submit" className="custom-file-upload2" disabled={isLoading}>
+              {isLoading ? "Transcribing..." : "Transcriber"}
             </button>
           </div>
         </form>
@@ -186,7 +191,8 @@ function App() {
         )}
       </div>
       <div className="footer">
-        <p>©Todos os direitos reservados - AudioScribe</p>
+        <p>
+        ©All rights reserved - AudioScribe</p>
       </div>
     </div>
   );
